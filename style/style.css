@@ -58,7 +58,6 @@ img {
 .card{
     cursor: pointer;
 }
-
 .user_container .user_image {
     width: 50px;
     height: 50px;
@@ -85,4 +84,16 @@ img {
 /* blog page  */
 .blog_container .blog_image {
     width: 50vw;
+}
+
+
+
+@media screen and (max-width: 767px){
+    .card .card-image {
+        width: 100%;
+        height: 240px;
+        object-fit: cover;
+        object-position:center;
+        border-radius: 5px;
+    }
 }

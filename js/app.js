@@ -40,10 +40,13 @@ const loadNews = async (id, categoryName) => {
     catch (error) {
         console.log(error);
     }
-
 }
 // display news by category id and name/ load new counter/ send news id to another function to show single news details
 const displayNews = (allNews, categoryName) => {
+    // sorting news data by total view
+    allNews.sort(function(a, b){
+        return a.total_view - b.total_view;
+    })
     const newsContainer = document.getElementById('news_container');
     newsContainer.innerHTML = ""
     const message = document.getElementById('message');
@@ -62,7 +65,7 @@ const displayNews = (allNews, categoryName) => {
         <div onclick="newsDetails('${news._id}')" class="card mb-3 p-3 border-0 shadow rounded-4" data-bs-toggle="modal" data-bs-target="#showNews">
             <div class="row g-0">
                 <div class="col-md-3">
-                    <img src="${news.thumbnail_url}" class="img-fluid rounded-start" alt="image">
+                    <img src="${news.thumbnail_url}" class="img-fluid card-image rounded-start" alt="image">
                 </div>
                 <div class="col-md-9">
                     <div class="card-body">
