@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>News Today</title>
+    <!-- google font link  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <!-- font awesome cdn -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <!-- main css  -->
+    <link rel="stylesheet" href="style/style.css">
+</head>
+
+<body>
+    <!-- header section  -->
+    <header>
+        <nav class="navbar navbar-expand-lg shadow-sm py-4">
+            <div class="container">
+                <a class="navbar-brand" href="#"><span class="btn btn-warning">News</span> <b
+                        class="text-warning">Today</b></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="blog.html">Blog</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    
+    <main>
+        <section class="blog_container mt-5 py-5">
+            <div class="container">
+                <div class="blog mb-5">
+                    <h4 class="blog_title fw-bold mb-4">1. Difference Between var, let & const</h4>
+                    <div class="blog_image">
+                        <img src="image/var.webp" alt="image">
+                    </div>
+                    <p class="blog_text mt-4"><strong>Var keyword: </strong> In JavaScript, users can declare a variable using 3 keywords that are var, let, and const. The var is the oldest keyword to declare a variable in JavaScript. The scope of the var keyword is the global or function scope. It means variables defined outside the function can be accessed globally, and variables defined inside a particular function can be accessed within the function. <br>
+                    <strong>Let keyword: </strong>The let keyword is an improved version of the var keyword. The scope of a let variable is only block scoped. It can’t be accessible outside the particular block ({block}). Let’s see the below example. <br>
+                    <strong>Const Keyword: </strong> The const keyword has all the properties that are the same as the let keyword, except the user cannot update it. When users declare a const variable, they need to initialize it, otherwise, it returns an error. The user cannot update the const variable once it is declared.
+                    </p>
+                </div>
+                <div class="blog mt-5 pt-5">
+                    <h4 class="blog_title fw-bold mb-4">2. Difference Between arrow function & regular function</h4>
+                    <div class="blog_image">
+                        <img src="image/arrow.jpg" alt="image">
+                    </div>
+                    <p class="blog_text mt-4">Since regular functions are constructible, they can be called using the new keyword. However, the arrow functions are only callable and not constructible, arrow functions can never be used as constructor functions. Hence, they can never be invoked with the new keyword. Arrow functions do not have an arguments binding. However, they have access to the arguments object of the closest non-arrow parent function. Unlike regular functions, arrow functions do not have their own this. Regular functions created using function declarations or expressions are constructible and callable. Since regular functions are constructible, they can be called using the new keyword. Arrow functions can never have duplicate named parameters, whether in strict or non-strict mode.
+                    </p>
+                </div>
+                <div class="blog mt-5 pt-5">
+                    <h4 class="blog_title fw-bold mb-4">3. Why to use template string in javascript</h4>
+                    <div class="blog_image">
+                        <img src="image/string.png" class="w-100" alt="image">
+                    </div>
+                    <p class="blog_text mt-4">Template literals (template strings) allow you to use strings or embedded expressions in the form of a string. They are enclosed in backticks. In the earlier versions of JavaScript, we had to use a single quote or a double quote for strings. Template literals also make it easy to write multiline strings. Before JavaScript ES6, you would use the '+' operator to concatenate variables and expressions in a string. With template literals, it's a bit easier to include variables and expressions inside a string. For that we have to use some special syntax ${...}. Normally, we use a function to pass arguments, However, we can create tagged templates (that behave like a function) using template literals. webp use tags that allow you to parse template literals with a function.
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+        crossorigin="anonymous"></script>
+    <script src="js/app.js"></script>
+</body>
+
+</html>

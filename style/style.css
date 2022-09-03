@@ -80,3 +80,9 @@ img {
     font-size: 25px;
     color: rgb(28, 28, 169);
 }
+
+
+/* blog page  */
+.blog_container .blog_image {
+    width: 50vw;
+}

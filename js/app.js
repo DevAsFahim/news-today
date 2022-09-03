@@ -21,11 +21,15 @@ const displayCategory = (categories) => {
         categoryContainer.appendChild(li)
     })
 }
+// clicking on the category and get their name and id, send then to load news
 const getCategoryName = (categoryId, categoryName) => {
+    loader(true)
     loadNews(categoryId, categoryName)
 }
+// calling category to show category menu
 loadCategory()
 
+// load news by category id and send them to another function to show news
 const loadNews = async (id, categoryName) => {
     const url = `https://openapi.programming-hero.com/api/news/category/${id}`
     try {
@@ -38,6 +42,7 @@ const loadNews = async (id, categoryName) => {
     }
 
 }
+// display news by category id and name/ load new counter/ send news id to another function to show single news details
 const displayNews = (allNews, categoryName) => {
     const newsContainer = document.getElementById('news_container');
     newsContainer.innerHTML = ""
@@ -51,7 +56,6 @@ const displayNews = (allNews, categoryName) => {
     else {
         message.innerText = ''
     }
-    // onclick="newsDetails('${news._id}')"
     allNews.map(news => {
         const cardBox = document.createElement('div');
         cardBox.innerHTML = `
@@ -95,10 +99,22 @@ const displayNews = (allNews, categoryName) => {
          </div>
         `
         newsContainer.appendChild(cardBox)
-
-    })
+    });
+    loader(false)
 }
-// const url = `https://openapi.programming-hero.com/api/news/0282e0e58a5c404fbd15261f11c2ab6a`
+//loader spinner function 
+const loader = isLoading => {
+    const loadContainer = document.getElementById('loadContainer');
+    if(isLoading){
+        loadContainer.classList.remove('d-none')
+    }
+    else{
+        loadContainer.classList.add('d-none')
+    }
+}
+
+
+// single news details from single news ID
 const newsDetails = async (news_id) => {
     const url = `https://openapi.programming-hero.com/api/news/${news_id}`
     try {
@@ -110,6 +126,7 @@ const newsDetails = async (news_id) => {
         console.log(error);
     }
 }
+// show news details by a modal
 const displayNewsDetails = (singleNewsDetails) => {
     const showNewsLabel = document.getElementById('showNewsLabel');
     showNewsLabel.textContent = singleNewsDetails?.title;
