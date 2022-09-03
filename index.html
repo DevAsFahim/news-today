@@ -50,7 +50,7 @@
             <div class="categories">
                 <ul id="category_container"
                     class="categories_container mb-0 d-flex justify-content-center align-items-center flex-wrap">
-                    <li><button>Home</button></li>
+                    
                 </ul>
             </div>
             <div class="alert">
@@ -86,11 +86,41 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="showNewsLabel">Modal title</h5>
+                        <h5 class="modal-title" id="showNewsLabel"></h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        ...
+                        <div class="modal_image">
+                            <img id="modal_image" src="" alt="image">
+                        </div>
+                        <div class="modal_info">
+                            <p id="modal_details"></p>
+                            <div class="user_container mt-4 d-flex justify-content-between align-items-center flex-wrap">
+                                <div class="user_info d-flex align-items-center">
+                                    <div class="user_image">
+                                        <img src="image/download.jpg" alt="image">
+                                    </div>  
+                                    <div class="user_data">
+                                        <strong>author name</strong>
+                                        <small class="text-muted d-block">date</small>
+                                    </div>                                      
+                                </div>
+                                <div class="view_count m-2">
+                                    <i class="fa-regular fa-eye"></i>
+                                    <strong>50k</strong>
+                                </div>
+                                <div class="rating m-2">
+                                    <i class="fa-solid fa-star text-warning"></i>
+                                    <i class="fa-solid fa-star text-warning"></i>
+                                    <i class="fa-solid fa-star text-warning"></i>
+                                    <i class="fa-solid fa-star text-warning"></i>
+                                    <i class="fa-solid fa-star-half-stroke text-warning"></i>
+                                </div>
+                                <div class="see_details">
+                                    <i class="fa-solid fa-arrow-right"></i>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

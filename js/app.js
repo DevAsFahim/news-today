@@ -59,13 +59,13 @@ const displayNews = (allNews, categoryName) => {
                                     <img src="${news.author.img}.png" alt="image">
                                 </div>  
                                 <div class="user_data">
-                                    <strong>${news.author.name}</strong>
-                                    <small class="text-muted d-block">${news.author.published_date ? news.author.published_date.slice(0, 10) : ''}</small>
+                                    <strong>${news.author.name ? news.author.name : 'no data found'}</strong>
+                                    <small class="text-muted d-block">${news.author.published_date ? news.author.published_date.slice(0, 10) : 'no data found'}</small>
                                 </div>                                      
                             </div>
                             <div class="view_count m-2">
                                 <i class="fa-regular fa-eye"></i>
-                                <strong>${news.total_view}</strong>
+                                <strong>${news.total_view ? news.total_view : 'no data found'}</strong>
                             </div>
                             <div class="rating m-2">
                                 <i class="fa-solid fa-star text-warning"></i>
@@ -98,6 +98,10 @@ const displayNewsDetails = (singleNewsDetails) => {
     console.log(singleNewsDetails);
     const showNewsLabel = document.getElementById('showNewsLabel');
     showNewsLabel.innerText = singleNewsDetails.title;
+    const modalImage = document.getElementById('modal_image');
+    modalImage.src = singleNewsDetails.image_url;
+    const modalDetailsText = document.getElementById('modal_details');
+    modalDetailsText.innerText = singleNewsDetails.details
 }
 newsDetails()
 loadNews('01', 'Breaking News')
