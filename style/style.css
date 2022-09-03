@@ -82,6 +82,13 @@ img {
 
 
 /* blog page  */
+.blog_container .blog{
+    padding-left: 20px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.079);
+    padding: 40px 30px;
+    background-color: #fff;
+    border-radius: 15px;
+}
 .blog_container .blog_image {
     width: 50vw;
 }
@@ -95,5 +102,8 @@ img {
         object-fit: cover;
         object-position:center;
         border-radius: 5px;
+    }
+    #message {
+        font-size: 16px;
     }
 }
