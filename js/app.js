@@ -11,35 +11,35 @@ const displayCategory = (categories) => {
     categories.map(category => {
         const li = document.createElement('li');
         li.innerHTML = `
-        <button onclick="getCategoryName('${category.category_id}')">${category.category_name}</button>
+        <button onclick="getCategoryName('${category.category_id}', '${category.category_name}')">${category.category_name}</button>
         `;
         categoryContainer.appendChild(li)
     })
 }
-const getCategoryName = (categoryName) => {
-    loadNews(categoryName)
+const getCategoryName = (categoryId, categoryName) => {
+    loadNews(categoryId, categoryName)
 }
 loadCategory()
 
-const loadNews = async (id) => {
+const loadNews = async (id, categoryName) => {
     const url = `https://openapi.programming-hero.com/api/news/category/${id}`
     const res = await fetch(url)
     const data = await res.json()
-    displayNews(data.data);
+    displayNews(data.data, categoryName);
 }
-const displayNews = (allNews) => {
+const displayNews = (allNews, categoryName) => {
     const newsContainer = document.getElementById('news_container');
     newsContainer.innerHTML = ""
-    // const message = document.getElementById('message');
-    // if(phones.length !== 0){
-    //     message.textContent = `${phones.length} item found`;
-    // }
-    // else if(phones.length !== 0){
-    //     message.textContent = `nothing '${searchText}' like found`;
-    // }
-    // else{
-    //     message.innerText = ''
-    // }
+    const message = document.getElementById('message');
+    if(allNews.length !== 0){
+        message.innerText = `${allNews.length} items found for category '${categoryName}'`;
+    }
+    else if(allNews.length === 0){
+        message.innerText = `nothing '${categoryName}' like found`;
+    }
+    else{
+        message.innerText = ''
+    }
     allNews.map(news => {
         console.log(news);
         const cardBox = document.createElement('div');
@@ -87,4 +87,4 @@ const displayNews = (allNews) => {
 
     })
 }
-loadNews('01')
+loadNews('01', 'Breaking News')
