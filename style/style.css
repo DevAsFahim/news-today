@@ -17,7 +17,7 @@ img {
 .categories_container{
     padding: 30px;
 }
-.categories_container li a{
+.categories_container li button{
     padding: 8px 20px;
     color: #aaa;
     font-weight: 500;
@@ -25,8 +25,10 @@ img {
     list-style: none;
     text-decoration: none;
     margin: 8px 0;
+    background-color: transparent;
+    border: none;
 }
-.categories_container li a:hover, .categories_container li a.active_link {
+.categories_container li button:hover, .categories_container li button.active_link {
     color: purple;
 }
 .alert h4 {
@@ -56,6 +58,7 @@ img {
 .card{
     cursor: pointer;
 }
+
 .user_container .user_image {
     width: 50px;
     height: 50px;
