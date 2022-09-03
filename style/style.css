@@ -24,9 +24,9 @@ img {
     font-size: 15px;
     list-style: none;
     text-decoration: none;
+    margin: 8px 0;
 }
 .categories_container li a:hover, .categories_container li a.active_link {
-    /* background-color: purple; */
     color: purple;
 }
 .alert h4 {
