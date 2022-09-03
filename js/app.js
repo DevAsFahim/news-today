@@ -1,9 +1,14 @@
 // get category and show them
 const loadCategory = async () => {
     const url = `https://openapi.programming-hero.com/api/news/categories`
-    const res = await fetch(url)
-    const data = await res.json()
-    displayCategory(data.data.news_category);
+    try {
+        const res = await fetch(url)
+        const data = await res.json()
+        displayCategory(data.data.news_category);
+    }
+    catch (error) {
+        console.log(error);
+    }
 }
 // display categories on category section
 const displayCategory = (categories) => {
@@ -23,28 +28,34 @@ loadCategory()
 
 const loadNews = async (id, categoryName) => {
     const url = `https://openapi.programming-hero.com/api/news/category/${id}`
-    const res = await fetch(url)
-    const data = await res.json()
-    displayNews(data.data, categoryName);
+    try {
+        const res = await fetch(url)
+        const data = await res.json()
+        displayNews(data.data, categoryName);
+    }
+    catch (error) {
+        console.log(error);
+    }
+
 }
 const displayNews = (allNews, categoryName) => {
     const newsContainer = document.getElementById('news_container');
     newsContainer.innerHTML = ""
     const message = document.getElementById('message');
-    if(allNews.length !== 0){
+    if (allNews.length !== 0) {
         message.innerText = `${allNews.length} items found for category '${categoryName}'`;
     }
-    else if(allNews.length === 0){
+    else if (allNews.length === 0) {
         message.innerText = `nothing found on category '${categoryName}'`;
     }
-    else{
+    else {
         message.innerText = ''
     }
     // onclick="newsDetails('${news._id}')"
     allNews.map(news => {
         const cardBox = document.createElement('div');
         cardBox.innerHTML = `
-        <div      class="card mb-3 p-3 border-0 shadow rounded-4" data-bs-toggle="modal" data-bs-target="#showNews">
+        <div onclick="newsDetails('${news._id}')" class="card mb-3 p-3 border-0 shadow rounded-4" data-bs-toggle="modal" data-bs-target="#showNews">
             <div class="row g-0">
                 <div class="col-md-3">
                     <img src="${news.thumbnail_url}" class="img-fluid rounded-start" alt="image">
@@ -87,21 +98,31 @@ const displayNews = (allNews, categoryName) => {
 
     })
 }
-const newsDetails = async() => {
-    // const url = `https://openapi.programming-hero.com/api/news/{news_id}`
-    const url = `https://openapi.programming-hero.com/api/news/0282e0e58a5c404fbd15261f11c2ab6a`
-    const res = await fetch(url)
-    const data = await res.json()
-    displayNewsDetails(data.data[0]);
+// const url = `https://openapi.programming-hero.com/api/news/0282e0e58a5c404fbd15261f11c2ab6a`
+const newsDetails = async (news_id) => {
+    const url = `https://openapi.programming-hero.com/api/news/${news_id}`
+    try {
+        const res = await fetch(url)
+        const data = await res.json()
+        displayNewsDetails(data.data[0]);
+    }
+    catch (error) {
+        console.log(error);
+    }
 }
 const displayNewsDetails = (singleNewsDetails) => {
-    console.log(singleNewsDetails);
     const showNewsLabel = document.getElementById('showNewsLabel');
-    showNewsLabel.innerText = singleNewsDetails.title;
+    showNewsLabel.textContent = singleNewsDetails?.title;
     const modalImage = document.getElementById('modal_image');
-    modalImage.src = singleNewsDetails.image_url;
+    modalImage.src = singleNewsDetails?.image_url;
     const modalDetailsText = document.getElementById('modal_details');
-    modalDetailsText.innerText = singleNewsDetails.details
+    modalDetailsText.innerText = singleNewsDetails?.details;
+    const userImage = document.getElementById('userImage');
+    userImage.src = singleNewsDetails?.author.img;
+    const authorName = document.getElementById('authorName');
+    authorName.innerText = singleNewsDetails?.author?.name ? singleNewsDetails.author.name : 'no data found';
+    const viewCount = document.getElementById('viewCount');
+    viewCount.innerText = singleNewsDetails?.total_view ? singleNewsDetails.total_view : 'no data found';
 }
 newsDetails()
 loadNews('01', 'Breaking News')

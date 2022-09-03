@@ -71,15 +71,17 @@
                 </div>
             </div>
         </div>
+        <div class="d-flex justify-content-center py-5">
+            <div class="spinner-border my-5 text-primary" role="status">
+              <span class="visually-hidden">Loading...</span>
+            </div>
+          </div>
 
         <section id="news_container" class="news_container py-5 container">
 
         </section>
 
-        <!-- Button trigger modal -->
-        <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#showNews">
-            Launch demo modal
-          </button> -->
+
           
         <!-- Modal -->
         <div class="modal fade" id="showNews" tabindex="-1" aria-labelledby="showNewsLabel" aria-hidden="true">
@@ -94,20 +96,20 @@
                             <img id="modal_image" src="" alt="image">
                         </div>
                         <div class="modal_info">
-                            <p id="modal_details"></p>
+                            <p id="modal_details" class="mt-4"></p>
                             <div class="user_container mt-4 d-flex justify-content-between align-items-center flex-wrap">
                                 <div class="user_info d-flex align-items-center">
                                     <div class="user_image">
-                                        <img src="image/download.jpg" alt="image">
+                                        <img id="userImage" src="" alt="image">
                                     </div>  
                                     <div class="user_data">
-                                        <strong>author name</strong>
-                                        <small class="text-muted d-block">date</small>
-                                    </div>                                      
+                                        <strong id="authorName">author name</strong>
+                                        <small class="text-muted d-block">Jan 10, 2022</small>
+                                    </div>
                                 </div>
                                 <div class="view_count m-2">
                                     <i class="fa-regular fa-eye"></i>
-                                    <strong>50k</strong>
+                                    <strong id="viewCount">50k</strong>
                                 </div>
                                 <div class="rating m-2">
                                     <i class="fa-solid fa-star text-warning"></i>
@@ -115,9 +117,6 @@
                                     <i class="fa-solid fa-star text-warning"></i>
                                     <i class="fa-solid fa-star text-warning"></i>
                                     <i class="fa-solid fa-star-half-stroke text-warning"></i>
-                                </div>
-                                <div class="see_details">
-                                    <i class="fa-solid fa-arrow-right"></i>
                                 </div>
                             </div>
                         </div>
