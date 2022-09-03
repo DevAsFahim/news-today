@@ -35,16 +35,16 @@ const displayNews = (allNews, categoryName) => {
         message.innerText = `${allNews.length} items found for category '${categoryName}'`;
     }
     else if(allNews.length === 0){
-        message.innerText = `nothing '${categoryName}' like found`;
+        message.innerText = `nothing found on category '${categoryName}'`;
     }
     else{
         message.innerText = ''
     }
+    // onclick="newsDetails('${news._id}')"
     allNews.map(news => {
-        console.log(news);
         const cardBox = document.createElement('div');
         cardBox.innerHTML = `
-        <div class="card mb-3 p-3 border-0 shadow rounded-4">
+        <div      class="card mb-3 p-3 border-0 shadow rounded-4" data-bs-toggle="modal" data-bs-target="#showNews">
             <div class="row g-0">
                 <div class="col-md-3">
                     <img src="${news.thumbnail_url}" class="img-fluid rounded-start" alt="image">
@@ -87,4 +87,17 @@ const displayNews = (allNews, categoryName) => {
 
     })
 }
+const newsDetails = async() => {
+    // const url = `https://openapi.programming-hero.com/api/news/{news_id}`
+    const url = `https://openapi.programming-hero.com/api/news/0282e0e58a5c404fbd15261f11c2ab6a`
+    const res = await fetch(url)
+    const data = await res.json()
+    displayNewsDetails(data.data[0]);
+}
+const displayNewsDetails = (singleNewsDetails) => {
+    console.log(singleNewsDetails);
+    const showNewsLabel = document.getElementById('showNewsLabel');
+    showNewsLabel.innerText = singleNewsDetails.title;
+}
+newsDetails()
 loadNews('01', 'Breaking News')
